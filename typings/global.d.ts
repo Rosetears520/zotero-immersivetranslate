@@ -7,7 +7,9 @@ declare const _globalThis: {
 
 declare type ZToolkit = ReturnType<
   typeof import("../src/utils/ztoolkit").createZToolkit
->;
+> & {
+  Menu: import("zotero-plugin-toolkit").MenuManager;
+};
 
 declare const ztoolkit: ZToolkit;
 
