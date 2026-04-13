@@ -1,11 +1,10 @@
 import { ZoteroToolkit } from "zotero-plugin-toolkit";
-import type { MenuManager } from "zotero-plugin-toolkit";
 import { config } from "../../package.json";
 
 export { createZToolkit };
 
 type ZToolkitWithMenu = ZoteroToolkit & {
-  Menu: MenuManager;
+  Menu: any;
 };
 
 function createZToolkit(): ZToolkitWithMenu {
