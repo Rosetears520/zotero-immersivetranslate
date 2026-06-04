@@ -1,9 +1,17 @@
 export function registerShortcuts() {
   ztoolkit.Keyboard.register((ev, data) => {
-    if (ev.shiftKey && ev.key === "A") {
-      addon.hooks.onShortcuts("translate");
+    if (data.type !== "keydown" || ev.repeat) {
+      return;
     }
-    if (ev.shiftKey && ev.key === "T") {
+
+    const key = ev.key.toUpperCase();
+    if (ev.shiftKey && key === "A") {
+      const ids = Zotero.getActiveZoteroPane()
+        .getSelectedItems()
+        .map((item) => item.id);
+      addon.hooks.onShortcuts("translate", ids);
+    }
+    if (ev.shiftKey && key === "T") {
       addon.hooks.onShortcuts("showTaskManager");
     }
   });

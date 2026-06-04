@@ -21,6 +21,7 @@ import {
 import { showTaskManager } from "./modules/translate/task-manager";
 import { initTasks } from "./modules/translate/store";
 import { getPref } from "./utils/prefs";
+import { removeKnownMenuElements } from "./utils/menu";
 
 async function onStartup() {
   await Promise.all([
@@ -82,9 +83,9 @@ async function onMainWindowLoad(win: _ZoteroTypes.MainWindow): Promise<void> {
     text: `[30%] ${getString("startup-begin")}`,
   });
 
-  registerMenu();
+  registerMenu(win.document);
 
-  registerWindowMenu();
+  registerWindowMenu(win.document);
 
   registerToolbar();
 
@@ -98,13 +99,16 @@ async function onMainWindowLoad(win: _ZoteroTypes.MainWindow): Promise<void> {
 }
 
 async function onMainWindowUnload(win: Window): Promise<void> {
+  removeKnownMenuElements(win.document);
   ztoolkit.unregisterAll();
-  ztoolkit.Menu.unregisterAll();
 }
 
 function onShutdown(): void {
   // 关闭前保存翻译数据
   saveTranslationData();
+  Zotero.getMainWindows?.().forEach((win) => {
+    removeKnownMenuElements(win.document);
+  });
   ztoolkit.unregisterAll();
   // Remove addon object
   addon.data.alive = false;
@@ -187,13 +191,13 @@ async function onPrefsEvent(type: string, data: { [key: string]: any }) {
   }
 }
 
-function onShortcuts(type: string) {
+function onShortcuts(type: string, ids?: number[]) {
   if (!getPref("enableShortcuts")) {
     return;
   }
   switch (type) {
     case "translate":
-      addTasksToQueue();
+      addTasksToQueue(ids);
       break;
     case "showTaskManager":
       showTaskManager();

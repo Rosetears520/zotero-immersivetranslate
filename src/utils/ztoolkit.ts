@@ -3,12 +3,8 @@ import { config } from "../../package.json";
 
 export { createZToolkit };
 
-type ZToolkitWithMenu = ZoteroToolkit & {
-  Menu: any;
-};
-
-function createZToolkit(): ZToolkitWithMenu {
-  const _ztoolkit = new ZoteroToolkit() as ZToolkitWithMenu;
+function createZToolkit(): ZoteroToolkit {
+  const _ztoolkit = new ZoteroToolkit();
   /**
    * Alternatively, import toolkit modules you use to minify the plugin size.
    * You can add the modules under the `MyToolkit` class below and uncomment the following line.
