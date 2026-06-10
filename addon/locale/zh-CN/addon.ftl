@@ -1,10 +1,13 @@
 startup-begin = 插件加载中
 startup-finish = 插件已就绪
-menuitem-translate = 使用沉浸式翻译(Shift+A)
-menuView-tasks = 查看沉浸式翻译任务(Shift+T)
+menuitem-translate = 使用沉浸式翻译(Ctrl/Cmd+Shift+B)
+menuView-tasks = 查看沉浸式翻译任务(Ctrl/Cmd+Shift+H)
 pref-test-success = 测试成功
 pref-test-failed = 测试失败
 pref-test-failed-description = 请检查授权码是否正确
+pref-shortcut-duplicate-error = 该快捷键已被另一个插件动作使用。插件快捷键不能重复。
+pref-shortcut-native-conflict-error = Shift+字母 是 Zotero 条目列表原生跳转功能，不能作为插件快捷键。
+pref-shortcut-conflict-guidance = 自定义快捷键可能与 Zotero 或系统快捷键冲突。插件不会因此阻止保存，但 Zotero 或系统可能会优先处理。
 
 prefs-title = 沉浸式翻译
 item-filed-status = 翻译状态
@@ -41,6 +44,10 @@ layoutModel-version-3 = 版本 3
 
 confirm-title = 翻译确认
 confirm-options = 选项
+confirm-article-single = 当前选择的文章
+confirm-article-multiple = 已选择 { $count } 个条目。下方显示第一项。
+confirm-article-unknown = 未命名文章
+confirm-article-metadata-unknown = 作者/年份不可用
 confirm-enable-compatibility = 是否启用兼容模式
 confirm-enable-compatibility-description = 启用后将会改善 PDF 兼容性，但是会增大输出文件大小
 confirm-enable-ocr-workaround = 是否启用 OCR 临时解决方案

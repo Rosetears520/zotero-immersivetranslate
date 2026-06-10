@@ -156,10 +156,49 @@
       />
     </vbox>
     <vbox>
-      <p data-l10n-id="pref-enable-shortcuts-description-1" />
+      <p data-l10n-id="pref-shortcuts-description" />
+    </vbox>
+    <vbox style="margin-top: 8px">
+      <html:label
+        for="zotero-prefpane-__addonRef__-shortcut-translate"
+        data-l10n-id="pref-shortcut-translate"
+      ></html:label>
+      <hbox align="center">
+        <html:input
+          id="zotero-prefpane-__addonRef__-shortcut-translate"
+          type="text"
+          preference="shortcutTranslate"
+          style="width: 160px; margin-right: 6px"
+        ></html:input>
+        <button
+          id="zotero-prefpane-__addonRef__-shortcut-translate-reset"
+          data-l10n-id="pref-shortcut-reset"
+        ></button>
+      </hbox>
+    </vbox>
+    <vbox style="margin-top: 8px">
+      <html:label
+        for="zotero-prefpane-__addonRef__-shortcut-task-manager"
+        data-l10n-id="pref-shortcut-task-manager"
+      ></html:label>
+      <hbox align="center">
+        <html:input
+          id="zotero-prefpane-__addonRef__-shortcut-task-manager"
+          type="text"
+          preference="shortcutTaskManager"
+          style="width: 160px; margin-right: 6px"
+        ></html:input>
+        <button
+          id="zotero-prefpane-__addonRef__-shortcut-task-manager-reset"
+          data-l10n-id="pref-shortcut-reset"
+        ></button>
+      </hbox>
     </vbox>
     <vbox>
-      <p data-l10n-id="pref-enable-shortcuts-description-2" />
+      <p
+        id="zotero-prefpane-__addonRef__-shortcut-feedback"
+        data-l10n-id="pref-shortcut-conflict-guidance"
+      />
     </vbox>
   </groupbox>
 

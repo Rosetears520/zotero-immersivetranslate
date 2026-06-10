@@ -72,8 +72,9 @@
 
 ## 快捷键
 
-- `Shift+A` 翻译选中的文献
-- `Shift+T` 打开任务管理窗口
+- `Ctrl+Shift+B`（macOS 为 `Cmd+Shift+B`）翻译选中的文献
+- `Ctrl+Shift+H`（macOS 为 `Cmd+Shift+H`）打开任务管理窗口
+- 可在插件设置页修改、清空或恢复默认快捷键；清空某一项只会停用对应动作。
 
 ## FAQ
 

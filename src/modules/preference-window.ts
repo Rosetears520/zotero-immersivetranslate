@@ -14,6 +14,20 @@ import {
 } from "../config";
 import type { Language } from "./language/types";
 import { checkIsCN } from "../utils/cn";
+import {
+  DEFAULT_SHORTCUTS,
+  formatShortcutForDisplay,
+  getShortcutFromKeyboardEvent,
+  isBareShiftLetterShortcut,
+  normalizeShortcutString,
+} from "./shortcuts";
+
+type ShortcutInputConfig = {
+  inputId: string;
+  resetId: string;
+  prefKey: "shortcutTranslate" | "shortcutTaskManager";
+  otherPrefKey: "shortcutTranslate" | "shortcutTaskManager";
+};
 
 export function registerPrefs() {
   Zotero.PreferencePanes.register({
@@ -315,6 +329,8 @@ function buildPrefsPane() {
 }
 
 function bindPrefEvents() {
+  bindShortcutPrefEvents();
+
   addon.data
     .prefs!.window.document?.querySelector(
       `#zotero-prefpane-${config.addonRef}-authkey`,
@@ -351,4 +367,98 @@ function bindPrefEvents() {
         });
       }
     });
+}
+
+function bindShortcutPrefEvents() {
+  const doc = addon.data.prefs!.window.document;
+  const shortcutInputs: ShortcutInputConfig[] = [
+    {
+      inputId: `zotero-prefpane-${config.addonRef}-shortcut-translate`,
+      resetId: `zotero-prefpane-${config.addonRef}-shortcut-translate-reset`,
+      prefKey: "shortcutTranslate",
+      otherPrefKey: "shortcutTaskManager",
+    },
+    {
+      inputId: `zotero-prefpane-${config.addonRef}-shortcut-task-manager`,
+      resetId: `zotero-prefpane-${config.addonRef}-shortcut-task-manager-reset`,
+      prefKey: "shortcutTaskManager",
+      otherPrefKey: "shortcutTranslate",
+    },
+  ];
+
+  shortcutInputs.forEach((shortcutInput) => {
+    const input = doc.querySelector<HTMLInputElement>(
+      `#${shortcutInput.inputId}`,
+    );
+    const resetButton = doc.querySelector(`#${shortcutInput.resetId}`);
+    if (!input || !resetButton) {
+      return;
+    }
+
+    input.value = formatShortcutForDisplay(getPref(shortcutInput.prefKey));
+    input.placeholder = formatShortcutForDisplay(
+      DEFAULT_SHORTCUTS[shortcutInput.prefKey],
+    );
+
+    input.addEventListener("keydown", (event) => {
+      const keyboardEvent = event as KeyboardEvent;
+      if (keyboardEvent.key === "Backspace" || keyboardEvent.key === "Delete") {
+        return;
+      }
+      keyboardEvent.preventDefault();
+      const shortcutValue = normalizeShortcutFromInputEvent(keyboardEvent);
+      if (shortcutValue) {
+        input.value = shortcutValue;
+        saveShortcutPref(shortcutInput, input);
+      }
+    });
+    input.addEventListener("change", () =>
+      saveShortcutPref(shortcutInput, input),
+    );
+    input.addEventListener("input", () =>
+      saveShortcutPref(shortcutInput, input),
+    );
+    resetButton.addEventListener("command", () => {
+      input.value = formatShortcutForDisplay(
+        DEFAULT_SHORTCUTS[shortcutInput.prefKey],
+      );
+      saveShortcutPref(shortcutInput, input);
+    });
+  });
+}
+
+function normalizeShortcutFromInputEvent(event: KeyboardEvent): string {
+  return getShortcutFromKeyboardEvent(event);
+}
+
+function saveShortcutPref(
+  shortcutInput: ShortcutInputConfig,
+  input: HTMLInputElement,
+) {
+  const normalizedValue = normalizeShortcutString(input.value);
+  const otherValue = normalizeShortcutString(
+    getPref(shortcutInput.otherPrefKey),
+  );
+  if (normalizedValue !== "" && normalizedValue === otherValue) {
+    input.value = formatShortcutForDisplay(getPref(shortcutInput.prefKey));
+    setShortcutFeedback(getString("pref-shortcut-duplicate-error"));
+    return;
+  }
+  if (isBareShiftLetterShortcut(normalizedValue)) {
+    input.value = formatShortcutForDisplay(getPref(shortcutInput.prefKey));
+    setShortcutFeedback(getString("pref-shortcut-native-conflict-error"));
+    return;
+  }
+  input.value = formatShortcutForDisplay(normalizedValue);
+  setPref(shortcutInput.prefKey, normalizedValue);
+  setShortcutFeedback(getString("pref-shortcut-conflict-guidance"));
+}
+
+function setShortcutFeedback(message: string) {
+  const feedback = addon.data.prefs!.window.document.querySelector(
+    `#zotero-prefpane-${config.addonRef}-shortcut-feedback`,
+  );
+  if (feedback) {
+    feedback.textContent = message;
+  }
 }

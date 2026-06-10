@@ -1,10 +1,13 @@
 startup-begin = Addon is loading
 startup-finish = Addon is ready
-menuitem-translate = Translate with ImmersiveTranslate(Shift+A)
-menuView-tasks = View Immersive translate tasks(Shift+T)
+menuitem-translate = Translate with ImmersiveTranslate(Ctrl/Cmd+Shift+B)
+menuView-tasks = View Immersive translate tasks(Ctrl/Cmd+Shift+H)
 pref-test-success = Test successfully
 pref-test-failed = Test failed
 pref-test-failed-description = Please check your authkey
+pref-shortcut-duplicate-error = This shortcut is already used by another plugin action. Plugin shortcuts must be unique.
+pref-shortcut-native-conflict-error = Shift+letter is reserved by Zotero item-list navigation and cannot be used as a plugin shortcut.
+pref-shortcut-conflict-guidance = Custom shortcuts may conflict with Zotero or system shortcuts. Conflicting values are allowed, but Zotero or the system may handle them first.
 
 prefs-title = Immersive Translate
 item-filed-status = Translation Status
@@ -41,6 +44,10 @@ layoutModel-version-3 = Version 3
 
 confirm-title = Translate Confirm
 confirm-options = Options
+confirm-article-single = Selected article
+confirm-article-multiple = { $count } selected items. First item shown below.
+confirm-article-unknown = Untitled article
+confirm-article-metadata-unknown = Author/year unavailable
 confirm-enable-compatibility = Enable compatibility mode
 confirm-enable-compatibility-description = Enabling this will improve PDF compatibility, but will increase the output file size.
 confirm-enable-ocr-workaround = Enable OCR temporary solution

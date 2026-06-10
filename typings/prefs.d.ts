@@ -22,6 +22,8 @@ declare namespace _ZoteroTypes {
       "customSystemPrompt": string;
       "fakeUserId": string;
       "enableShortcuts": boolean;
+      "shortcutTranslate": string;
+      "shortcutTaskManager": string;
       "layoutModel": string;
       "skipNetworkWarning": boolean;
     };

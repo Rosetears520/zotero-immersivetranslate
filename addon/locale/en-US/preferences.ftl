@@ -27,8 +27,13 @@ pref-imt-site = Get your authorization key from your personal page on Immersive 
 pref-shortcuts-settings = Shortcuts
 pref-enable-shortcuts =
     .label = Enable shortcuts
-pref-enable-shortcuts-description-1 = Translate selected items
-pref-enable-shortcuts-description-2 = Open task manager
+pref-shortcuts-description = Defaults use Ctrl on Windows/Linux and Cmd on macOS. Clear a field to disable only that action.
+pref-shortcut-translate = Translate selected items shortcut
+pref-shortcut-task-manager = Open task manager shortcut
+pref-shortcut-reset =
+    .label = Reset
+pref-shortcut-duplicate-error = This shortcut is already used by another plugin action. Plugin shortcuts must be unique.
+pref-shortcut-conflict-guidance = Custom shortcuts may conflict with Zotero or system shortcuts. Conflicting values are allowed, except Shift+letter, which is reserved for Zotero item-list navigation.
 
 pref-translate-settings = Translation
 

@@ -10,6 +10,7 @@ import { registerToolbar } from "./modules/toolbar";
 import { registerNotifier } from "./modules/notify";
 import {
   addTasksToQueue,
+  addTasksToQueueByIds,
   startQueueProcessing,
   shouldSkipAttachment,
 } from "./modules/translate/task";
@@ -170,7 +171,7 @@ async function onNotify(
       }
     }
     if (newIds.length > 0) {
-      addTasksToQueue(newIds);
+      addTasksToQueueByIds(newIds);
     }
   }
 }
@@ -191,13 +192,13 @@ async function onPrefsEvent(type: string, data: { [key: string]: any }) {
   }
 }
 
-function onShortcuts(type: string, ids?: number[]) {
+function onShortcuts(type: string) {
   if (!getPref("enableShortcuts")) {
     return;
   }
   switch (type) {
     case "translate":
-      addTasksToQueue(ids);
+      addTasksToQueue();
       break;
     case "showTaskManager":
       showTaskManager();

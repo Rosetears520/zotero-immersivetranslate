@@ -9,7 +9,15 @@ import { getLanguageOptions } from "../language";
 import { checkIsCN } from "../../utils/cn";
 import type { Language } from "../language/types";
 
-export async function showConfirmationDialog(): Promise<{
+export type ConfirmationArticleInfo = {
+  count: number;
+  title?: string;
+  metadata?: string;
+};
+
+export async function showConfirmationDialog(
+  articleInfo?: ConfirmationArticleInfo,
+): Promise<{
   action: "confirm" | "cancel";
   data?: {
     targetLanguage: Language;
@@ -25,7 +33,18 @@ export async function showConfirmationDialog(): Promise<{
   const isCN = checkIsCN();
   const real_translateModels = isCN ? translateModels_CN : translateModels;
 
-  const dialogHelper = new ztoolkit.Dialog(11, 4)
+  const articleTitle =
+    articleInfo?.title || getString("confirm-article-unknown");
+  const articleMetadata =
+    articleInfo?.metadata || getString("confirm-article-metadata-unknown");
+  const articleSummary =
+    articleInfo && articleInfo.count > 1
+      ? getString("confirm-article-multiple", {
+          args: { count: articleInfo.count },
+        })
+      : getString("confirm-article-single");
+
+  const dialogHelper = new ztoolkit.Dialog(12, 4)
     .addCell(0, 0, {
       tag: "h2",
       properties: {
@@ -36,6 +55,64 @@ export async function showConfirmationDialog(): Promise<{
       },
     })
     .addCell(1, 0, {
+      tag: "div",
+      namespace: "html",
+      styles: {
+        width: "360px",
+        maxWidth: "360px",
+        border: "1px solid var(--fill-quinary)",
+        borderRadius: "6px",
+        padding: "8px",
+        margin: "4px 0 10px 0",
+      },
+      children: [
+        {
+          tag: "div",
+          namespace: "html",
+          properties: {
+            innerText: articleSummary,
+          },
+          styles: {
+            fontSize: "12px",
+            color: "var(--fill-secondary)",
+            marginBottom: "4px",
+          },
+        },
+        {
+          tag: "div",
+          namespace: "html",
+          attributes: {
+            title: articleTitle,
+          },
+          properties: {
+            innerText: articleTitle,
+          },
+          styles: {
+            maxWidth: "340px",
+            maxHeight: "2.8em",
+            overflow: "hidden",
+            lineHeight: "1.4",
+            fontWeight: "600",
+          },
+        },
+        {
+          tag: "div",
+          namespace: "html",
+          properties: {
+            innerText: articleMetadata,
+          },
+          styles: {
+            maxWidth: "340px",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+            marginTop: "4px",
+            color: "var(--fill-secondary)",
+          },
+        },
+      ],
+    })
+    .addCell(2, 0, {
       tag: "label",
       namespace: "html",
       properties: {
@@ -46,7 +123,7 @@ export async function showConfirmationDialog(): Promise<{
       },
     })
     .addCell(
-      2,
+      3,
       0,
       {
         tag: "select",
@@ -72,7 +149,7 @@ export async function showConfirmationDialog(): Promise<{
       },
       false,
     )
-    .addCell(3, 0, {
+    .addCell(4, 0, {
       tag: "label",
       namespace: "html",
       properties: {
@@ -83,7 +160,7 @@ export async function showConfirmationDialog(): Promise<{
       },
     })
     .addCell(
-      4,
+      5,
       0,
       {
         tag: "select",
@@ -109,7 +186,7 @@ export async function showConfirmationDialog(): Promise<{
       },
       false,
     )
-    .addCell(5, 0, {
+    .addCell(6, 0, {
       tag: "label",
       namespace: "html",
       properties: {
@@ -120,7 +197,7 @@ export async function showConfirmationDialog(): Promise<{
       },
     })
     .addCell(
-      6,
+      7,
       0,
       {
         tag: "select",

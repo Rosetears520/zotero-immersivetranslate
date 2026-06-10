@@ -24,13 +24,19 @@ export function isAttachmentInTaskList(attachmentId: number): boolean {
   );
 }
 
-export async function addTasksToQueue(ids?: number[]) {
+type ConfirmationArticleInfo = {
+  count: number;
+  title?: string;
+  metadata?: string;
+};
+
+async function validateTranslationAuth(): Promise<boolean> {
   const authkey = getPref("authkey");
   if (!authkey) {
     showDialog({
       title: getString("pref-test-failed-description"),
     });
-    return;
+    return false;
   }
   const result = await addon.api.checkAuthKey({
     apiKey: authkey,
@@ -39,15 +45,29 @@ export async function addTasksToQueue(ids?: number[]) {
     showDialog({
       title: getString("pref-test-failed-description"),
     });
+    return false;
+  }
+
+  return true;
+}
+
+export async function addTasksToQueue() {
+  if (!(await validateTranslationAuth())) {
     return;
   }
 
-  // 根据是否传入 ids 参数选择不同的获取任务方式
-  const tasksToQueue =
-    ids && ids.length > 0
-      ? await getTranslationTasksByIds(ids)
-      : await getTranslationTasks();
+  await addTasksToQueueFromTasks(await getTranslationTasks());
+}
 
+export async function addTasksToQueueByIds(ids: number[]) {
+  if (!(await validateTranslationAuth())) {
+    return;
+  }
+
+  await addTasksToQueueFromTasks(await getTranslationTasksByIds(ids));
+}
+
+async function addTasksToQueueFromTasks(tasksToQueue: TranslationTaskData[]) {
   if (tasksToQueue.length === 0) {
     ztoolkit.log("No valid PDF attachments found to add to the queue.");
     showDialog({
@@ -58,7 +78,9 @@ export async function addTasksToQueue(ids?: number[]) {
   const translateMode = getPref("translateMode");
   const translateModel = getPref("translateModel");
   const targetLanguage = getPref("targetLanguage") as Language;
-  const confirmResult = await showConfirmationDialog();
+  const confirmResult = await showConfirmationDialog(
+    getConfirmationArticleInfo(tasksToQueue),
+  );
   if (confirmResult.action === "cancel") {
     return;
   }
@@ -141,6 +163,36 @@ async function getTranslationTasks(): Promise<TranslationTaskData[]> {
 
   ztoolkit.log("Found tasks (after refined deduplication):", tasks);
   return tasks;
+}
+
+function getConfirmationArticleInfo(
+  tasksToQueue: TranslationTaskData[],
+): ConfirmationArticleInfo {
+  const firstTask = tasksToQueue[0];
+  const uniqueParentIds = new Set(
+    tasksToQueue
+      .map((task) => task.parentItemId || task.attachmentId)
+      .filter((id): id is number => typeof id === "number"),
+  );
+  const parentItem = firstTask?.parentItemId
+    ? Zotero.Items.get(firstTask.parentItemId)
+    : undefined;
+  const title = firstTask?.parentItemTitle || firstTask?.attachmentFilename;
+  const metadataParts = [];
+  if (parentItem?.firstCreator) {
+    metadataParts.push(parentItem.firstCreator);
+  }
+  const date = parentItem?.getField("date", true, true) as string | undefined;
+  const year = date?.substring(0, 4);
+  if (year && year !== "0000") {
+    metadataParts.push(year);
+  }
+
+  return {
+    count: uniqueParentIds.size || tasksToQueue.length,
+    title,
+    metadata: metadataParts.join(" · "),
+  };
 }
 
 // 处理单个条目，提取其中的PDF附件并创建翻译任务
