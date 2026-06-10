@@ -26,8 +26,13 @@ pref-enable-autoTranslate-description = 启用后将会自动翻译新添加的 
 pref-shortcuts-settings = 快捷键
 pref-enable-shortcuts =
     .label = 启用快捷键
-pref-enable-shortcuts-description-1 = Shift + A 翻译所选条目
-pref-enable-shortcuts-description-2 = Shift + T 打开翻译任务管理器
+pref-shortcuts-description = 默认快捷键在 Windows/Linux 使用 Ctrl，在 macOS 使用 Cmd。清空某一项只会停用该动作。
+pref-shortcut-translate = 翻译所选条目快捷键
+pref-shortcut-task-manager = 打开翻译任务管理器快捷键
+pref-shortcut-reset =
+    .label = 恢复默认
+pref-shortcut-duplicate-error = 该快捷键已被另一个插件动作使用。插件快捷键不能重复。
+pref-shortcut-conflict-guidance = 自定义快捷键可能与 Zotero 或系统快捷键冲突。除 Zotero 条目列表原生使用的 Shift+字母 外，插件不会因此阻止保存。
 
 pref-imt-site = 在沉浸式翻译官网个人主页获取授权码
 

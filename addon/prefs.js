@@ -14,5 +14,7 @@ pref("dualMode", "lort");
 pref("customSystemPrompt", "");
 pref("fakeUserId", "");
 pref("enableShortcuts", true);
+pref("shortcutTranslate", "Mod+Shift+B");
+pref("shortcutTaskManager", "Mod+Shift+H");
 pref("layoutModel", "version_3");
 pref("skipNetworkWarning", false);
