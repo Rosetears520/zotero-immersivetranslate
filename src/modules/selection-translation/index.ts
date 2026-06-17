@@ -21,6 +21,8 @@ const AUTO_ANNOTATION_REQUEST_DELAY_MS = 500;
 const AUTO_ANNOTATION_REQUEST_WINDOW_MS = 60_000;
 const RECENT_READER_SELECTION_WINDOW_MS = 15_000;
 const MAX_RECENT_READER_SELECTIONS = 10;
+const IMMERSIVE_TRANSLATE_ICON_PATH =
+  "M116.705 75.100 L 116.600 89.000 88.900 89.103 L 61.200 89.205 61.200 137.600 L 61.200 185.995 88.900 186.097 L 116.600 186.200 116.704 207.100 L 116.807 228.000 130.604 228.000 L 144.400 228.000 144.400 207.000 L 144.400 186.000 172.200 186.000 L 200.000 186.000 200.000 137.600 L 200.000 89.200 172.200 89.200 L 144.400 89.200 144.400 75.200 L 144.400 61.200 130.605 61.200 L 116.810 61.200 116.705 75.100 M227.600 88.772 L 227.600 102.800 250.576 102.800 C 265.463 102.800,273.640 102.941,273.800 103.200 C 273.936 103.420,274.387 103.600,274.803 103.600 C 281.873 103.600,292.696 112.756,295.278 120.921 C 295.778 122.505,296.371 123.928,296.594 124.085 C 296.854 124.268,297.044 130.468,297.124 141.385 L 297.247 158.400 311.262 158.400 L 325.277 158.400 325.083 140.900 C 324.882 122.835,324.541 118.696,323.013 115.765 C 322.678 115.124,322.404 114.303,322.402 113.940 C 322.398 112.713,319.594 106.004,317.992 103.386 C 317.116 101.956,316.400 100.635,316.400 100.451 C 316.400 100.267,315.995 99.677,315.500 99.139 C 315.005 98.601,314.107 97.412,313.504 96.496 C 311.880 94.027,305.442 87.743,302.856 86.103 C 301.615 85.316,300.456 84.430,300.280 84.136 C 300.104 83.841,299.804 83.600,299.613 83.600 C 299.422 83.600,297.879 82.780,296.184 81.778 C 292.949 79.865,288.492 78.078,284.796 77.210 C 283.588 76.927,282.420 76.558,282.200 76.390 C 280.817 75.333,275.285 75.062,251.900 74.906 L 227.600 74.745 227.600 88.772 M116.600 137.600 L 116.600 158.200 102.700 158.305 L 88.800 158.410 88.800 137.600 L 88.800 116.790 102.700 116.895 L 116.600 117.000 116.600 137.600 M172.000 137.600 L 172.000 158.400 158.200 158.400 L 144.400 158.400 144.400 137.600 L 144.400 116.800 158.200 116.800 L 172.000 116.800 172.000 137.600 M255.091 172.900 C 254.773 174.314,252.711 179.778,252.412 180.000 C 252.263 180.110,251.461 182.090,250.628 184.400 C 249.795 186.710,248.891 188.960,248.619 189.400 C 248.166 190.130,246.935 193.348,245.328 198.000 C 244.986 198.990,244.579 199.890,244.424 200.000 C 244.269 200.110,243.461 202.090,242.628 204.400 C 241.795 206.710,240.891 208.960,240.619 209.400 C 240.166 210.130,238.935 213.348,237.328 218.000 C 236.986 218.990,236.579 219.890,236.424 220.000 C 236.269 220.110,235.461 222.090,234.628 224.400 C 233.795 226.710,232.891 228.960,232.619 229.400 C 232.166 230.130,230.935 233.348,229.328 238.000 C 228.986 238.990,228.579 239.890,228.424 240.000 C 228.269 240.110,227.461 242.090,226.628 244.400 C 225.795 246.710,224.883 248.969,224.600 249.421 C 224.317 249.872,223.808 251.042,223.468 252.021 C 221.781 256.882,220.655 259.819,220.412 260.000 C 220.263 260.110,219.461 262.090,218.628 264.400 C 217.795 266.710,216.883 268.969,216.600 269.421 C 216.317 269.872,215.808 271.042,215.468 272.021 C 213.781 276.882,212.655 279.819,212.412 280.000 C 212.263 280.110,211.461 282.090,210.628 284.400 C 209.795 286.710,208.891 288.960,208.619 289.400 C 208.166 290.130,206.935 293.348,205.328 298.000 C 204.986 298.990,204.579 299.890,204.424 300.000 C 204.269 300.110,203.461 302.090,202.628 304.400 C 201.795 306.710,200.891 308.960,200.619 309.400 C 200.166 310.130,198.935 313.348,197.328 318.000 C 196.986 318.990,196.583 319.890,196.433 320.000 C 196.191 320.178,194.400 324.617,194.400 325.040 C 194.400 325.133,201.186 325.162,209.480 325.105 L 224.560 325.000 225.465 322.471 C 225.963 321.079,226.659 319.369,227.011 318.671 C 227.637 317.428,230.057 311.085,230.587 309.300 C 230.734 308.805,231.001 308.400,231.180 308.400 C 231.360 308.400,231.597 307.995,231.708 307.500 C 231.993 306.224,234.272 300.138,235.022 298.649 C 235.639 297.423,238.062 291.071,238.587 289.300 C 238.734 288.805,239.022 288.400,239.227 288.400 C 239.432 288.400,239.600 288.145,239.600 287.833 C 239.600 287.521,239.954 286.441,240.386 285.433 L 241.172 283.600 269.531 283.600 L 297.891 283.600 298.546 285.313 C 298.906 286.256,299.200 287.175,299.200 287.355 C 299.200 287.536,299.629 288.537,300.152 289.580 C 300.676 290.623,301.788 293.349,302.623 295.638 C 303.458 297.927,304.269 299.890,304.424 300.000 C 304.579 300.110,304.987 301.010,305.331 302.000 C 306.989 306.773,307.765 308.786,308.800 311.000 C 310.009 313.586,311.554 317.639,311.888 319.100 C 312.001 319.595,312.238 320.000,312.416 320.000 C 312.593 320.000,312.945 320.675,313.198 321.500 C 313.452 322.325,313.847 323.495,314.078 324.100 L 314.497 325.200 329.449 325.200 C 346.303 325.200,345.174 325.457,343.448 322.020 C 342.924 320.977,341.812 318.251,340.977 315.962 C 340.142 313.673,339.337 311.710,339.188 311.600 C 338.945 311.419,337.819 308.482,336.132 303.621 C 335.792 302.642,335.283 301.472,335.000 301.021 C 334.717 300.569,333.805 298.310,332.972 296.000 C 332.139 293.690,331.337 291.710,331.188 291.600 C 330.945 291.419,329.819 288.482,328.132 283.621 C 327.792 282.642,327.283 281.472,327.000 281.021 C 326.717 280.569,325.805 278.310,324.972 276.000 C 324.139 273.690,323.337 271.710,323.188 271.600 C 322.945 271.419,321.819 268.482,320.132 263.621 C 319.792 262.642,319.283 261.472,319.000 261.021 C 318.717 260.569,317.805 258.310,316.972 256.000 C 316.139 253.690,315.337 251.710,315.188 251.600 C 314.945 251.419,313.819 248.482,312.132 243.621 C 311.792 242.642,311.283 241.472,311.000 241.021 C 310.717 240.569,309.805 238.310,308.972 236.000 C 308.139 233.690,307.337 231.710,307.188 231.600 C 306.945 231.419,305.819 228.482,304.132 223.621 C 303.792 222.642,303.283 221.472,303.000 221.021 C 302.717 220.569,301.805 218.310,300.972 216.000 C 300.139 213.690,299.331 211.710,299.176 211.600 C 299.021 211.490,298.614 210.590,298.272 209.600 C 296.665 204.948,295.434 201.730,294.981 201.000 C 294.709 200.560,293.805 198.310,292.972 196.000 C 292.139 193.690,291.331 191.710,291.176 191.600 C 291.021 191.490,290.614 190.590,290.272 189.600 C 288.667 184.953,287.434 181.730,286.982 181.000 C 286.710 180.560,285.905 178.580,285.192 176.600 C 284.480 174.620,283.718 172.775,283.500 172.500 C 283.195 172.117,279.842 172.000,269.198 172.000 L 255.293 172.000 255.091 172.900 M270.342 214.500 C 270.978 216.680,272.184 219.788,272.480 220.011 C 272.634 220.128,273.474 222.198,274.346 224.611 C 275.218 227.025,276.219 229.562,276.570 230.249 C 277.192 231.467,279.455 237.406,279.904 239.000 C 280.028 239.440,280.272 239.895,280.445 240.011 C 280.618 240.128,281.479 242.228,282.357 244.679 C 283.235 247.131,284.144 249.465,284.377 249.868 C 285.100 251.118,286.400 254.437,286.400 255.033 C 286.400 255.513,283.802 255.600,269.400 255.600 C 260.050 255.600,252.400 255.506,252.400 255.392 C 252.400 255.278,252.850 254.077,253.400 252.723 C 253.950 251.370,254.400 250.036,254.400 249.760 C 254.400 249.483,254.637 249.019,254.928 248.729 C 255.218 248.438,255.560 247.840,255.688 247.400 C 256.167 245.754,258.416 239.852,259.022 238.649 C 259.639 237.423,262.062 231.071,262.587 229.300 C 262.734 228.805,263.001 228.400,263.180 228.400 C 263.360 228.400,263.597 227.995,263.708 227.500 C 264.027 226.071,266.188 220.398,267.344 217.955 C 267.925 216.727,268.400 215.617,268.400 215.487 C 268.400 213.445,269.823 212.722,270.342 214.500 M74.908 258.900 C 75.078 275.176,75.446 280.965,76.390 282.200 C 76.558 282.420,76.925 283.590,77.205 284.800 C 78.005 288.246,79.979 293.127,81.870 296.333 C 82.821 297.946,83.600 299.422,83.600 299.613 C 83.600 299.804,83.841 300.104,84.136 300.280 C 84.430 300.456,85.316 301.615,86.103 302.856 C 87.894 305.679,94.229 312.056,96.838 313.661 C 97.917 314.325,98.800 315.003,98.800 315.167 C 98.800 315.331,99.295 315.718,99.900 316.027 C 100.505 316.336,102.122 317.262,103.493 318.086 C 106.058 319.626,112.767 322.398,113.940 322.402 C 114.303 322.404,115.124 322.678,115.765 323.013 C 118.974 324.686,122.332 324.902,147.900 325.085 L 172.400 325.259 172.400 311.245 L 172.400 297.230 148.585 297.115 C 133.034 297.040,124.671 296.859,124.485 296.593 C 124.328 296.370,123.304 295.955,122.210 295.671 C 113.434 293.396,105.109 284.270,103.791 275.479 C 103.635 274.440,103.348 273.492,103.154 273.371 C 102.958 273.251,102.800 266.091,102.800 257.376 L 102.800 241.600 88.764 241.600 L 74.728 241.600 74.908 258.900";
 
 type ReaderSelectionEvent = {
   reader?: {
@@ -113,10 +115,31 @@ type ReaderEventGuard = {
   dispose: () => void;
 };
 
+type SelectionTranslationResult = Awaited<
+  ReturnType<typeof requestDeepSeekSelectionTranslation>
+>;
+
+type RecentSelectionTranslation =
+  | {
+      status: "pending";
+      requestID: number;
+      promise: Promise<SelectionTranslationResult>;
+    }
+  | {
+      status: "success";
+      requestID: number;
+      translatedText: string;
+    }
+  | {
+      status: "error";
+      requestID: number;
+    };
+
 type RecentReaderSelection = {
   itemID?: number;
   sourceText: string;
   timestamp: number;
+  translation?: RecentSelectionTranslation;
 };
 
 type ReaderEventRegistry = {
@@ -258,6 +281,9 @@ export function handleSelectionTranslationItemAdded(
     ) {
       continue;
     }
+    if (reuseRecentSelectionTranslationForAnnotation(item, sourceText)) {
+      continue;
+    }
     enqueueAutoAnnotationTranslation(item, sourceText);
   }
 }
@@ -316,12 +342,14 @@ function handleRenderSidebarAnnotationHeader(event: ReaderSelectionEvent) {
   if (!doc?.createElement) {
     return;
   }
+  injectStyles(doc);
 
   const button = doc.createElement("button");
   button.type = "button";
   button.className = `${ROOT_CLASS}__annotation-header-button`;
-  button.textContent = getString(
-    "selection-translation-annotation-header-action",
+  appendImmersiveTranslateButtonContent(
+    button,
+    getString("selection-translation-annotation-header-action"),
   );
   button.title = getString("selection-translation-annotation-header-action");
   button.setAttribute(
@@ -365,28 +393,45 @@ function handleRenderTextSelectionPopup(event: ReaderSelectionEvent) {
   recordRecentReaderSelection(event, selectedText);
 
   injectStyles(event.doc);
-  const entry = createPopupEntry(event, selectedText);
+  const autoTranslate =
+    getPref("selectionTranslationAutoTranslateText") === true;
+  const entry = createPopupEntry(event, selectedText, autoTranslate);
   event.append(entry);
-  if (getPref("selectionTranslationAutoTranslateText") === true) {
-    startSelectionTranslation(event, selectedText);
+  if (autoTranslate) {
+    startSelectionTranslation(event, selectedText, {
+      mount: entry,
+      reveal: false,
+    });
   }
 }
 
 function createPopupEntry(
   event: ReaderSelectionEvent,
   selectedText: string,
+  autoTranslate: boolean,
 ): HTMLElement {
   const entry = event.doc.createElement("span");
   entry.className = `${ROOT_CLASS}__popup-entry`;
 
+  if (autoTranslate) {
+    return entry;
+  }
+
   const button = event.doc.createElement("button");
   button.type = "button";
   button.className = `${ROOT_CLASS}__translate-button`;
-  button.textContent = getString("selection-translation-action");
+  appendImmersiveTranslateButtonContent(
+    button,
+    getString("selection-translation-action"),
+  );
   button.addEventListener("click", (event_) => {
     event_.preventDefault();
     event_.stopPropagation();
-    startSelectionTranslation(event, selectedText);
+    button.remove();
+    startSelectionTranslation(event, selectedText, {
+      mount: entry,
+      reveal: false,
+    });
   });
 
   entry.append(button);
@@ -396,6 +441,10 @@ function createPopupEntry(
 function startSelectionTranslation(
   event: ReaderSelectionEvent,
   sourceText: string,
+  options: {
+    mount?: HTMLElement;
+    reveal?: boolean;
+  } = {},
 ) {
   cleanupActiveSession();
   injectStyles(event.doc);
@@ -403,6 +452,8 @@ function startSelectionTranslation(
   const session = createSession(event, sourceText);
   activeSession = session;
   latestState = toSelectionState(session);
+  options.mount?.append(session.root);
+  renderPopupSession(session);
   bindReaderUnload(session);
   refreshItemPaneSections();
 
@@ -428,7 +479,9 @@ function startSelectionTranslation(
     status: "loading",
     message: getString("selection-translation-loading"),
   });
-  revealItemPaneSection(toSelectionState(session));
+  if (options.reveal !== false) {
+    revealItemPaneSection(toSelectionState(session));
+  }
   void translateForSession(session, apiKey);
 }
 
@@ -802,19 +855,21 @@ function reserveAutoAnnotationRequestSlot(): boolean {
 function recordRecentReaderSelection(
   event: ReaderSelectionEvent,
   sourceText: string,
-) {
+): RecentReaderSelection {
   pruneRecentReaderSelections();
-  recentReaderSelections.push({
+  const selection = {
     itemID: event.reader?.itemID,
     sourceText,
     timestamp: Date.now(),
-  });
+  };
+  recentReaderSelections.push(selection);
   if (recentReaderSelections.length > MAX_RECENT_READER_SELECTIONS) {
     recentReaderSelections.splice(
       0,
       recentReaderSelections.length - MAX_RECENT_READER_SELECTIONS,
     );
   }
+  return selection;
 }
 
 function matchesRecentReaderSelection(
@@ -828,6 +883,32 @@ function matchesRecentReaderSelection(
   }
   return recentReaderSelections.some((selection) => {
     return selection.itemID === parentID && selection.sourceText === sourceText;
+  });
+}
+
+function getRecentReaderSelectionForAnnotation(
+  item: Zotero.Item,
+  sourceText: string,
+): RecentReaderSelection | undefined {
+  pruneRecentReaderSelections();
+  const parentID = getItemParentID(item);
+  if (typeof parentID !== "number") {
+    return undefined;
+  }
+  return [...recentReaderSelections].reverse().find((selection) => {
+    return selection.itemID === parentID && selection.sourceText === sourceText;
+  });
+}
+
+function getRecentReaderSelectionForSession(
+  session: PopupSession,
+): RecentReaderSelection | undefined {
+  pruneRecentReaderSelections();
+  return [...recentReaderSelections].reverse().find((selection) => {
+    return (
+      selection.itemID === session.itemID &&
+      selection.sourceText === session.sourceText
+    );
   });
 }
 
@@ -851,6 +932,143 @@ function getAnnotationItemSourceText(item: Zotero.Item): string {
   return typeof item.annotationText === "string"
     ? item.annotationText.trim()
     : "";
+}
+
+function reuseRecentSelectionTranslationForAnnotation(
+  item: Zotero.Item,
+  sourceText: string,
+): boolean {
+  const selection = getRecentReaderSelectionForAnnotation(item, sourceText);
+  const translation = selection?.translation;
+  if (!translation) {
+    return false;
+  }
+  if (translation.status === "success") {
+    void writeReusedSelectionTranslationToAnnotation(
+      item,
+      sourceText,
+      translation.translatedText,
+    );
+    return true;
+  }
+  if (translation.status === "error") {
+    return true;
+  }
+  if (translation.status !== "pending") {
+    return false;
+  }
+  if (pendingAutoAnnotationItemIDs.has(item.id)) {
+    return true;
+  }
+  pendingAutoAnnotationItemIDs.add(item.id);
+  void translation.promise
+    .then(async (result) => {
+      if (!result.ok) {
+        return;
+      }
+      const currentSelection = getRecentReaderSelectionForAnnotation(
+        item,
+        sourceText,
+      );
+      if (currentSelection?.translation?.requestID !== translation.requestID) {
+        await writeCurrentSelectionTranslationToAnnotation(item, sourceText);
+        return;
+      }
+      if (
+        currentSelection.translation.status !== "success" ||
+        currentSelection.translation.translatedText !== result.translation
+      ) {
+        return;
+      }
+      await writeReusedSelectionTranslationToAnnotation(
+        item,
+        sourceText,
+        result.translation,
+      );
+    })
+    .finally(() => {
+      pendingAutoAnnotationItemIDs.delete(item.id);
+    });
+  return true;
+}
+
+async function writeCurrentSelectionTranslationToAnnotation(
+  item: Zotero.Item,
+  sourceText: string,
+) {
+  const currentSelection = getRecentReaderSelectionForAnnotation(
+    item,
+    sourceText,
+  );
+  const translation = currentSelection?.translation;
+  if (!translation) {
+    return;
+  }
+  if (translation.status === "success") {
+    await writeReusedSelectionTranslationToAnnotation(
+      item,
+      sourceText,
+      translation.translatedText,
+    );
+    return;
+  }
+  if (translation.status !== "pending") {
+    return;
+  }
+  const result = await translation.promise;
+  if (!result.ok) {
+    return;
+  }
+  const latestSelection = getRecentReaderSelectionForAnnotation(
+    item,
+    sourceText,
+  );
+  if (
+    latestSelection?.translation?.status !== "success" ||
+    latestSelection.translation.requestID !== translation.requestID ||
+    latestSelection.translation.translatedText !== result.translation
+  ) {
+    return;
+  }
+  await writeReusedSelectionTranslationToAnnotation(
+    item,
+    sourceText,
+    result.translation,
+  );
+}
+
+async function writeReusedSelectionTranslationToAnnotation(
+  item: Zotero.Item,
+  sourceText: string,
+  translatedText: string,
+) {
+  if (
+    getPref("selectionTranslationAutoTranslateNewAnnotations") !== true ||
+    !isAutoTranslatableAnnotationItem(item) ||
+    getAnnotationItemSourceText(item) !== sourceText ||
+    !matchesRecentReaderSelection(item, sourceText) ||
+    hasExistingAnnotationTranslationBlock(item)
+  ) {
+    return;
+  }
+  const state = createAutoAnnotationStateFromItem(
+    item,
+    sourceText,
+    getString("selection-translation-success"),
+  );
+  state.status = "success";
+  state.translatedText = translatedText;
+  latestState = state;
+  refreshItemPaneSections();
+  await maybeAutoWriteAnnotationComment(state, {
+    requirePref: false,
+    successKey: "selection-translation-new-annotation-auto-translate-success",
+    canMutate: () =>
+      getPref("selectionTranslationAutoTranslateNewAnnotations") === true &&
+      isAutoTranslatableAnnotationItem(item) &&
+      getAnnotationItemSourceText(item) === sourceText &&
+      !hasExistingAnnotationTranslationBlock(item),
+  });
 }
 
 function enqueueAutoAnnotationTranslation(
@@ -930,11 +1148,25 @@ function createAutoAnnotationState(
   job: AutoAnnotationJob,
   item: Zotero.Item,
 ): SelectionState {
+  return createAutoAnnotationStateFromItem(
+    item,
+    job.sourceText,
+    getString("selection-translation-new-annotation-loading"),
+    job.annotation,
+  );
+}
+
+function createAutoAnnotationStateFromItem(
+  item: Zotero.Item,
+  sourceText: string,
+  message: string,
+  annotation = createAnnotationContextFromItem(item),
+): SelectionState {
   return {
     id: ++nextSessionID,
     requestID: 0,
     itemID: getItemParentID(item) ?? item.id,
-    sourceText: job.sourceText,
+    sourceText,
     translatedText: "",
     targetLanguage: `${getPref("targetLanguage") || "zh-CN"}`,
     model: normalizeSelectionTranslationModel(
@@ -944,8 +1176,8 @@ function createAutoAnnotationState(
       getPref("selectionTranslationThinkingMode"),
     ),
     status: "idle",
-    message: getString("selection-translation-new-annotation-loading"),
-    annotation: job.annotation,
+    message,
+    annotation,
   };
 }
 
@@ -994,7 +1226,7 @@ async function translateForSession(session: PopupSession, apiKey: string) {
   session.requestID = requestID;
   latestState = toSelectionState(session);
   refreshItemPaneSections();
-  const result = await requestDeepSeekSelectionTranslation({
+  const requestPromise = requestDeepSeekSelectionTranslation({
     apiKey,
     text: requestedSourceText,
     targetLanguage: requestedTargetLanguage,
@@ -1003,6 +1235,9 @@ async function translateForSession(session: PopupSession, apiKey: string) {
   }).catch(() => {
     return { ok: false as const, code: "server" as const };
   });
+  recordRecentSelectionTranslationPending(session, requestID, requestPromise);
+  const result = await requestPromise;
+  recordRecentSelectionTranslationResult(session, requestID, result);
 
   if (
     !isActive(session) ||
@@ -1047,7 +1282,78 @@ function updateSession(
 ) {
   Object.assign(session, patch);
   latestState = toSelectionState(session);
+  renderPopupSession(session);
   refreshItemPaneSections();
+}
+
+function renderPopupSession(session: PopupSession) {
+  session.body.replaceChildren();
+  const status = session.doc.createElement("span");
+  status.className = `${ROOT_CLASS}__popup-status`;
+  status.textContent = session.message || getStatusText(session.status);
+  session.body.append(status);
+
+  if (!session.translatedText) {
+    return;
+  }
+
+  const result = session.doc.createElement("div");
+  result.className = `${ROOT_CLASS}__popup-result`;
+  result.textContent = session.translatedText;
+  result.tabIndex = 0;
+
+  const copyButton = session.doc.createElement("button");
+  copyButton.type = "button";
+  copyButton.className = `${ROOT_CLASS}__popup-copy-button`;
+  copyButton.textContent = getString("selection-translation-copy");
+  copyButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    copyTranslatedText(session);
+  });
+
+  session.body.append(result, copyButton);
+}
+
+function recordRecentSelectionTranslationPending(
+  session: PopupSession,
+  requestID: number,
+  promise: Promise<SelectionTranslationResult>,
+) {
+  const selection = getRecentReaderSelectionForSession(session);
+  if (!selection) {
+    return;
+  }
+  selection.timestamp = Date.now();
+  selection.translation = {
+    status: "pending",
+    requestID,
+    promise,
+  };
+}
+
+function recordRecentSelectionTranslationResult(
+  session: PopupSession,
+  requestID: number,
+  result: SelectionTranslationResult,
+) {
+  const selection = getRecentReaderSelectionForSession(session);
+  if (!selection || selection.translation?.requestID !== requestID) {
+    return;
+  }
+  selection.timestamp = Date.now();
+  if (result.ok) {
+    selection.translation = {
+      status: "success",
+      requestID,
+      translatedText: result.translation,
+    };
+    return;
+  }
+  selection.translation = {
+    status: "error",
+    requestID,
+  };
 }
 
 function toSelectionState(session: PopupSession): SelectionState {
@@ -1523,11 +1829,11 @@ function registerItemPaneSection() {
       pluginID: addon.data.config.addonID,
       header: {
         l10nID: "selection-translation-title",
-        icon: `chrome://${addon.data.config.addonRef}/content/icons/favicon.png`,
+        icon: getImmersiveTranslateIconURL(),
       },
       sidenav: {
         l10nID: "selection-translation-title",
-        icon: `chrome://${addon.data.config.addonRef}/content/icons/favicon.png`,
+        icon: getImmersiveTranslateIconURL(),
       },
       onInit: (context: ItemPaneInitContext) => {
         registerItemPaneRefreshCallback(context);
@@ -1801,8 +2107,11 @@ function createItemPaneActions(
   actions.className = `${ROOT_CLASS}__actions`;
   const actionButtons: HTMLButtonElement[] = [];
   actionButtons.push(
-    createItemPaneButton(doc, "selection-translation-action", () =>
-      translateStateFromItemPane(state, sourceInput.value),
+    createItemPaneButton(
+      doc,
+      "selection-translation-action",
+      () => translateStateFromItemPane(state, sourceInput.value),
+      { withLogo: true },
     ),
   );
   if (state.translatedText) {
@@ -1838,15 +2147,73 @@ function createItemPaneButton(
   doc: Document,
   labelKey: string,
   listener: () => void,
+  options: { withLogo?: boolean } = {},
 ): HTMLButtonElement {
   const button = doc.createElement("button");
   button.type = "button";
-  button.textContent = getString(labelKey);
+  const label = getString(labelKey);
+  if (options.withLogo) {
+    appendImmersiveTranslateButtonContent(button, label);
+  } else {
+    button.textContent = label;
+  }
   button.addEventListener("click", (event) => {
     event.preventDefault();
     listener();
   });
   return button;
+}
+
+function appendImmersiveTranslateButtonContent(
+  button: HTMLButtonElement,
+  label: string,
+) {
+  button.classList.add(`${ROOT_CLASS}__logo-button`);
+  button.title = label;
+  button.setAttribute("aria-label", label);
+
+  const doc = button.ownerDocument;
+  if (!doc) {
+    button.textContent = label;
+    return;
+  }
+  const icon = doc.createElement("span");
+  icon.className = `${ROOT_CLASS}__button-logo`;
+  icon.setAttribute("aria-hidden", "true");
+  icon.append(createInlineImmersiveTranslateIcon(doc));
+
+  const text = doc.createElement("span");
+  text.className = `${ROOT_CLASS}__button-label`;
+  text.textContent = label;
+
+  button.replaceChildren(icon, text);
+}
+
+function createInlineImmersiveTranslateIcon(doc: Document): SVGSVGElement {
+  const svg = doc.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "svg",
+  ) as unknown as SVGSVGElement;
+  svg.setAttribute("viewBox", "0 0 400 400");
+  svg.setAttribute("focusable", "false");
+
+  const background = doc.createElementNS("http://www.w3.org/2000/svg", "rect");
+  background.setAttribute("width", "400");
+  background.setAttribute("height", "400");
+  background.setAttribute("rx", "48");
+  background.setAttribute("fill", "#ec4c8c");
+
+  const logoPath = doc.createElementNS("http://www.w3.org/2000/svg", "path");
+  logoPath.setAttribute("d", IMMERSIVE_TRANSLATE_ICON_PATH);
+  logoPath.setAttribute("fill", "#fcfcfc");
+  logoPath.setAttribute("fill-rule", "evenodd");
+
+  svg.append(background, logoPath);
+  return svg;
+}
+
+function getImmersiveTranslateIconURL(): string {
+  return `chrome://${addon.data.config.addonRef}/content/icons/icon.svg`;
 }
 
 function cleanupActiveSession() {
@@ -1940,8 +2307,9 @@ function injectStyles(doc: Document) {
   style.textContent = `
     .${ROOT_CLASS}__popup-entry {
       align-items: center;
-      display: inline-flex;
-      margin-inline-start: 6px;
+      display: flex;
+      inline-size: calc(100% - 16px);
+      margin-inline: 8px;
       position: relative;
       vertical-align: middle;
     }
@@ -1955,12 +2323,75 @@ function injectStyles(doc: Document) {
       min-height: 24px;
       padding: 3px 9px;
     }
+    .${ROOT_CLASS}__logo-button {
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--border-color, rgba(0, 0, 0, 0.18));
+      border-radius: 999px;
+      box-sizing: border-box;
+      color: var(--fill-primary, ButtonText);
+      display: inline-flex;
+      gap: 5px;
+      justify-content: center;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .${ROOT_CLASS}__button-logo {
+      block-size: 16px;
+      flex: 0 0 auto;
+      inline-size: 16px;
+    }
+    .${ROOT_CLASS}__button-logo svg {
+      block-size: 100%;
+      display: block;
+      inline-size: 100%;
+    }
+    .${ROOT_CLASS}__translate-button.${ROOT_CLASS}__logo-button {
+      inline-size: 100%;
+      min-height: 24px;
+      min-inline-size: 0;
+      padding: 2px 12px;
+    }
     .${ROOT_CLASS}__annotation-header-button {
       appearance: auto;
       font: menu;
       margin-inline-start: 4px;
       min-height: 22px;
       padding: 2px 6px;
+    }
+    .${ROOT_CLASS}__annotation-header-button.${ROOT_CLASS}__logo-button {
+      min-height: 22px;
+      padding: 1px 7px 1px 5px;
+    }
+    .${ROOT_CLASS}__panel {
+      display: inline-grid;
+      gap: 4px;
+      max-inline-size: min(320px, 80vw);
+      vertical-align: middle;
+    }
+    .${ROOT_CLASS}__popup-status {
+      color: var(--fill-secondary, #5f6368);
+      font: menu;
+      white-space: nowrap;
+    }
+    .${ROOT_CLASS}__popup-result {
+      background: var(--material-background, Canvas);
+      border: 1px solid var(--border-color, rgba(0, 0, 0, 0.16));
+      border-radius: 4px;
+      color: var(--fill-primary, CanvasText);
+      font: menu;
+      max-block-size: 96px;
+      overflow: auto;
+      padding: 4px 6px;
+      user-select: text;
+      white-space: pre-wrap;
+    }
+    .${ROOT_CLASS}__popup-copy-button {
+      appearance: auto;
+      font: menu;
+      justify-self: start;
+      min-height: 20px;
+      padding: 1px 6px;
     }
     .${ROOT_CLASS}__panel-header { align-items: center; display: flex; gap: 8px; justify-content: space-between; }
     .${ROOT_CLASS}__status { margin: 4px 0; }
@@ -1974,6 +2405,10 @@ function injectStyles(doc: Document) {
       width: 100%;
     }
     .${ROOT_CLASS}__actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .${ROOT_CLASS}__actions .${ROOT_CLASS}__logo-button {
+      min-height: 24px;
+      padding: 2px 8px 2px 6px;
+    }
     .${ROOT_CLASS}__item-pane { display: grid; gap: 8px; }
     .${ROOT_CLASS}__item-pane-block {
       border: 1px solid var(--border-color, rgba(0, 0, 0, 0.12));
